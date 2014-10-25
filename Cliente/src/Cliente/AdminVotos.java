@@ -10,6 +10,7 @@ import java.util.ArrayList;
  * and open the template in the editor.
  */
 
+
 /**
  *
  * @author a09001540
@@ -20,8 +21,8 @@ public class AdminVotos {
     private int number=0;
     
     public AdminVotos(){
-        Candidato candidato1 = new Candidato("Maximiliano de Habsburgo", "Conservadores",number++);
-        Candidato candidato2 = new Candidato("Benito Juarez", "Liberales", number++);
+        Candidato candidato1 = new Candidato("Grisel Ancona", "Conservadores",number++);
+        Candidato candidato2 = new Candidato("Kevin Pacheco", "Liberales", number++);
         Candidato candidato3 = new Candidato("Juan Perez", "Izquierda", number++);
         candidatos.add(candidato1);
         candidatos.add(candidato2);

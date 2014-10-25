@@ -18,8 +18,8 @@ public class ControaladorServidor {
 
     public ControaladorServidor() {
         candidatos = new ArrayList<Candidato>();
-        Candidato candidato1 = new Candidato("Maximiliano de Habsburgo", "Conservadores",cont++);
-        Candidato candidato2 = new Candidato("Benito Juarez", "Liberales", cont++);
+        Candidato candidato1 = new Candidato("Grisel Ancona", "Conservadores",cont++);
+        Candidato candidato2 = new Candidato("Kevin Pacheco", "Liberales", cont++);
         Candidato candidato3 = new Candidato("Juan Perez", "Izquierda", cont++);
         candidatos.add(candidato1);
         candidatos.add(candidato2);

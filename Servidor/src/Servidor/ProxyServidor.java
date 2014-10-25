@@ -6,6 +6,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class ProxyServidor {
 
@@ -25,8 +26,19 @@ public class ProxyServidor {
     }
 
     public void recibirMensaje(String mensaje) throws FileNotFoundException, IOException {
-        this.mensaje = mensaje;
-        convertirMensaje(mensaje);
+        int accion = Integer.parseInt(mensaje.substring((mensaje.length() - 1), mensaje.length()));
+        if (accion== 1){
+            this.mensaje = mensaje;
+            convertirMensaje(mensaje);
+        }
+        else{
+            if (accion==0){
+                ClienteTCP clienteTCP = new ClienteTCP();
+                clienteTCP.enviarMensaje("3");
+             
+            }
+        }
+        
     }
 
     //Revisar la entrada de la variable

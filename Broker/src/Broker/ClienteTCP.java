@@ -36,7 +36,8 @@ private int puerto;
          
          
         }catch(Exception excepcion){
-            JOptionPane.showMessageDialog(null, "Mensaje Cliente tcp broker " + excepcion.getMessage());
+            JOptionPane.showMessageDialog(null, "Mensaje Cliente TCP broker: servicio desactivado" );
+            
         }
     }
     

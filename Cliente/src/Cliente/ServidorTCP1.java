@@ -41,9 +41,11 @@ public class ServidorTCP1 {
             JOptionPane.showMessageDialog(null, "Los votos se han registrado correctamente");
             vistaCaptura.hacerDisponible();
         } else {
-            if(accion != 1){
-                JOptionPane.showMessageDialog(null, "Hubo un problema");
-                vistaCaptura.hacerDisponible();
+            if (accion != 1) {
+                if (accion != 0) {
+                    JOptionPane.showMessageDialog(null, "Hubo un problema");
+                    vistaCaptura.hacerDisponible();
+                }
             }
         }
     }
@@ -56,7 +58,6 @@ public class ServidorTCP1 {
             System.out.println("Llego la peticion");
 
         }
-        
-        
+
     }
 }

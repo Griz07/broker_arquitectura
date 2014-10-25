@@ -34,8 +34,7 @@ public class ProxyServidor {
         else{
             if (accion==0){
                 ClienteTCP clienteTCP = new ClienteTCP();
-                clienteTCP.enviarMensaje("3");
-             
+                clienteTCP.enviarMensaje("2");
             }
         }
         

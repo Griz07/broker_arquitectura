@@ -20,7 +20,6 @@ public class ClienteTCP {
     /**
      * @param args the command line arguments
      */
-
     /**
      *
      * @param mensaje
@@ -29,32 +28,35 @@ public class ClienteTCP {
      */
     public void enviarMensaje(String mensaje, int accion) throws IOException {
         System.out.println("enviado");
+        EscribirLog.setOut("C:log.txt");
+        EscribirLog.write("Enviado");
+        EscribirLog.flush();
         try {
             clientSocket = new Socket("localhost", 6789);
             DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
             outToServer.writeUTF(mensaje + accion);
 
             System.out.println("Paso");
+            EscribirLog.setOut("C:log.txt");
+            EscribirLog.write("Paso");
+            EscribirLog.flush();
             clientSocket.close();
-
 
         } catch (Exception excepcion) {
             JOptionPane.showMessageDialog(null, "Mensaje Cliente tcp de cliente " + excepcion.getMessage());
         }
     }
 
-    public void enviarfin(){
+    public void enviarfin() {
         try {
             clientSocket = new Socket("localhost", 6789);
             DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
             outToServer.writeUTF("0");
             clientSocket.close();
 
-
         } catch (Exception excepcion) {
             JOptionPane.showMessageDialog(null, "Mensaje Cliente tcp de cliente" + excepcion.getMessage());
         }
     }
-
 
 }

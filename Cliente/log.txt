@@ -1,0 +1,11 @@
+
+Enviado
+Paso
+Enviado
+Paso
+Enviado
+Paso
+Mensaje recibido en el cliente. EstadO: Exitoso
+Llego la petición. Estado: Exitoso
+Mensaje recibido en el cliente. EstadO: Exitoso
+Llego la petición. Estado: Exitoso

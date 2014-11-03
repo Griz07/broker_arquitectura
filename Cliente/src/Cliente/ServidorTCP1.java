@@ -28,6 +28,9 @@ public class ServidorTCP1 {
             DataInputStream recibido = new DataInputStream(conexionSocket.getInputStream());
             mensajeRecibido = recibido.readUTF();
             System.out.println("Mensaje Recibido en el cliente");
+            EscribirLog.setOut("C:log.txt");
+            EscribirLog.write("Mensaje recibido en el cliente. EstadO: Exitoso");
+            EscribirLog.flush();
             procesarRespuesta();
 
         } catch (Exception excepcion) {
@@ -56,6 +59,9 @@ public class ServidorTCP1 {
         while (true) {
             servidorTCP1.recibirMensaje();
             System.out.println("Llego la peticion");
+            EscribirLog.setOut("C:log.txt");
+            EscribirLog.write("Llego la petición. Estado: Exitoso");
+            EscribirLog.flush();
 
         }
 

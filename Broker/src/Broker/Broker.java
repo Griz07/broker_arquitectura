@@ -34,6 +34,9 @@ public class Broker {
         int accion = Integer.parseInt(mensaje.substring((mensaje.length() - 1), mensaje.length()));
 
         System.out.println(accion);
+//        EscribirLog.setOut("C:log.txt");
+//            EscribirLog.write(Integer.toString(accion));
+//            EscribirLog.flush();
         if(verifyService(accion)){
             enviarValidacionMensaje(accion, mensaje);
         }
@@ -55,16 +58,25 @@ public class Broker {
         //Se contacta al servidor
         if (accion == 1) {
             System.out.println("Accion 1");
+            EscribirLog.setOut("C:log.txt");
+            EscribirLog.write(" Accion 1: Envio de datos al servidor. Estado: Exitoso");
+            EscribirLog.flush();
             this.currentService.getClienteTCP().enviarMensaje(mensaje);
         } else {
             
             if( accion == 0){
                 ClienteTCP clienteTCP = new ClienteTCP("localhost",5000);
                 clienteTCP.enviarMensaje(mensaje);
+                EscribirLog.setOut("C:log.txt");
+            EscribirLog.write(" Accion 0: Finaliza el envío de datos al servidor. Estado: Exitoso");
+            EscribirLog.flush();
             }
             //Se contacta al cliente    
             if (accion == 2) {
                 System.out.println("Accion 2");
+                EscribirLog.setOut("C:log.txt");
+            EscribirLog.write(" Accion 2: Confirma al cliente. Estado: Exitoso");
+            EscribirLog.flush();
                 ClienteTCP clienteTCP = new ClienteTCP("localhost",1234);
                 clienteTCP.enviarMensaje("2");
             } else {

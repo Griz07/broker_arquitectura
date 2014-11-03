@@ -1,0 +1,26 @@
+
+Mensaje recibido en el broker
+ Accion 1: Envio de datos al servidor. Estado: Exitoso
+Enviado
+Mensaje recibido en el broker
+ Accion 1: Envio de datos al servidor. Estado: Exitoso
+Enviado
+Mensaje recibido en el broker
+ Accion 1: Envio de datos al servidor. Estado: Exitoso
+Enviado
+Mensaje recibido en el broker
+Enviado
+ Accion 0: Finaliza el envío de datos al servidor. Estado: Exitoso
+Enviado
+Mensaje recibido en el broker
+ Accion 1: Envio de datos al servidor. Estado: Exitoso
+Enviado
+Mensaje recibido en el broker
+ Accion 1: Envio de datos al servidor. Estado: Exitoso
+Enviado
+Mensaje recibido en el broker
+ Accion 1: Envio de datos al servidor. Estado: Exitoso
+Enviado
+Mensaje recibido en el broker
+ Accion 2: Confirma al cliente. Estado: Exitoso
+Enviado

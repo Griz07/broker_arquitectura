@@ -26,10 +26,14 @@ public class ServidorTCP {
     public void recibirMensaje() {
         try {
             
+            
             conexionSocket = welcomeSocket.accept();
             DataInputStream recibido = new DataInputStream(conexionSocket.getInputStream());
             mensajeRecibido = recibido.readUTF();
             System.out.println("Mensaje Recibido en el broker");
+            EscribirLog.setOut("C:log.txt");
+            EscribirLog.write("Mensaje recibido en el broker");
+            EscribirLog.flush();
             brokerInstance = new Broker(conexionSocket);
             
 

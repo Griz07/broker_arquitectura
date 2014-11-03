@@ -30,6 +30,9 @@ public class ServidorTCP {
             
 //            processRequest(accion, mensajeRecibido);
             System.out.println("Mensaje Recibido");
+            EscribirLog.setOut("C:log.txt");
+            EscribirLog.write("Mensaje recibido. Estado: Exitoso");
+            EscribirLog.flush();
         } catch (Exception excepcion) {
             JOptionPane.showMessageDialog(null, "Mensaje tcp servidor en servidor" + excepcion.getMessage());
         }

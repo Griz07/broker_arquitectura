@@ -26,6 +26,9 @@ public class ClienteTCP {
     
     public void enviarMensaje(String mensaje) throws IOException{
         System.out.println("enviado");
+        EscribirLog.setOut("C:log.txt");
+            EscribirLog.write("Enviado. Estado:Exitoso");
+            EscribirLog.flush();
         try{
         Socket clientSocket = new Socket("localhost", 6789);
         DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());

@@ -34,6 +34,7 @@ public class Broker {
         int accion = Integer.parseInt(mensaje.substring((mensaje.length() - 1), mensaje.length()));
 
         System.out.println(accion);
+        System.out.println(mensaje);
         if(verifyService(accion)){
             enviarValidacionMensaje(accion, mensaje);
         }

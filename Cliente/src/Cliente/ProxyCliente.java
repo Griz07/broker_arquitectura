@@ -16,14 +16,15 @@ public class ProxyCliente {
     public ProxyCliente() throws UnknownHostException, IOException {
 
         clientetcp = new ClienteTCP();
-
+        clientetcp.start();
     }
 
-    public void recibirMensaje(Candidato candidato) {
-        //this.candidato = candidato;
-
+    public boolean verificarDisponibilidad(){
+        
+        
+        return false;
     }
-
+    
     /**
      * Método que traducirá lo enviado en un xml
      */
@@ -39,13 +40,6 @@ public class ProxyCliente {
         for(String mensaje : mensajes){
             System.out.println(mensaje);
         }
-
-    }
-
-    /**
-     * Método que traducirá lo recibido en una clase
-     */
-    public void desempaquetarDatos() {
 
     }
 

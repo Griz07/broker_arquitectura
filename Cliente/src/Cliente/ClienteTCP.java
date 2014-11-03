@@ -6,21 +6,29 @@ package Cliente;
 
 import java.io.*;
 import java.net.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author user
  */
-public class ClienteTCP {
+public class ClienteTCP extends Thread {
 
     private String mensajeRecibido;
     private Socket clientSocket;
 
+    public ClienteTCP(){
+        try {
+            clientSocket = new Socket("localhost", 6789);
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Mensaje Cliente tcp de cliente " + ex.getMessage());
+        }
+    }
     /**
      * @param args the command line arguments
      */
-
     /**
      *
      * @param mensaje
@@ -29,32 +37,61 @@ public class ClienteTCP {
      */
     public void enviarMensaje(String mensaje, int accion) throws IOException {
         System.out.println("enviado");
-        try {
-            clientSocket = new Socket("localhost", 6789);
+        
             DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
             outToServer.writeUTF(mensaje + accion);
 
             System.out.println("Paso");
-            clientSocket.close();
+            //clientSocket.close();
 
-
-        } catch (Exception excepcion) {
-            JOptionPane.showMessageDialog(null, "Mensaje Cliente tcp de cliente " + excepcion.getMessage());
-        }
     }
 
-    public void enviarfin(){
+    public void enviarfin() {
+
+            DataOutputStream outToServer = null;
         try {
-            clientSocket = new Socket("localhost", 6789);
-            DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
+            outToServer = new DataOutputStream(clientSocket.getOutputStream());
             outToServer.writeUTF("0");
-            clientSocket.close();
-
-
-        } catch (Exception excepcion) {
-            JOptionPane.showMessageDialog(null, "Mensaje Cliente tcp de cliente" + excepcion.getMessage());
+            //clientSocket.close();
+        } catch (IOException ex) {
+            JOptionPane.showMessageDialog(null, "Mensaje Cliente tcp de cliente " + ex.getMessage());
         }
+
     }
 
+    @Override
+    public void run() {
 
+            while(true){
+                try {
+                    recibirMensaje();
+                } catch (Exception ex) {
+                    JOptionPane.showMessageDialog(null, "Mensaje servidor tcp broker " + ex.getMessage());
+                    break;
+                }
+            }
+    }
+    
+    public void recibirMensaje() throws Exception{
+            DataInputStream recibido = new DataInputStream(clientSocket.getInputStream());
+            mensajeRecibido = recibido.readUTF();
+            System.out.println("Mensaje Recibido en el cliente");
+            procesarRespuesta();
+    }
+    
+        public void procesarRespuesta() {
+        int accion = Integer.parseInt(mensajeRecibido.substring((mensajeRecibido.length() - 1), mensajeRecibido.length()));
+        if (accion == 2) {
+            JOptionPane.showMessageDialog(null, "Los votos se han registrado correctamente");
+            //vistaCaptura.hacerDisponible();
+        } else {
+            if (accion != 1) {
+                if (accion != 0) {
+                    JOptionPane.showMessageDialog(null, "Hubo un problema");
+                    //vistaCaptura.hacerDisponible();
+                }
+            }
+        }
+    }
+    
 }

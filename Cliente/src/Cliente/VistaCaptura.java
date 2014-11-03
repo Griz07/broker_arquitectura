@@ -34,14 +34,6 @@ public class VistaCaptura extends javax.swing.JFrame {
         //Inicialización, revisar 
         proxyClientes = new ProxyCliente();
 
-        /*
-        //Código de prueba
-        candidato1 = new Candidato("Maximiliano de Habsburgo", "Conservadores");
-        candidato2 = new Candidato("Benito Juarez", "Liberales");
-        candidatos.add(candidato1);
-        candidatos.add(candidato2);
-
-        */
         ArrayList<String> cand = admin.getNombreCandidatos();
         
         for (String candidato : cand) {

@@ -41,7 +41,9 @@ public class ClienteTCP {
 
         } catch (Exception excepcion) {
             JOptionPane.showMessageDialog(null, "Mensaje Cliente TCP broker: servicio desactivado");
-
+             EscribirLog.setOut("C:log.txt");
+            EscribirLog.write("servicio desactivado");
+            EscribirLog.flush();
         }
 
     }
